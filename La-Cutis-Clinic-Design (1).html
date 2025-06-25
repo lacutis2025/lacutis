@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Cutis - Skincare & Eyebrow Clinic</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#2C2C2C',secondary:'#F9F6F2'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Montserrat', sans-serif;
+color: #333;
+background-color: #F9F6F2;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Cormorant Garamond', serif;
+}
+.logo {
+font-family: 'Cormorant Garamond', serif;
+font-weight: 600;
+letter-spacing: 1px;
+}
+.hero-section {
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+}
+.hero-content {
+background: linear-gradient(90deg, rgba(44, 44, 44, 0.9) 0%, rgba(44, 44, 44, 0.8) 50%, rgba(44, 44, 44, 0.1) 100%);
+}
+.service-card:hover .service-icon {
+transform: translateY(-5px);
+}
+.service-card:hover .service-title {
+color: #2C2C2C;
+}
+input:focus, textarea:focus {
+outline: none;
+border-color: #2C2C2C;
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 50px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #2C2C2C;
+}
+input:checked + .slider:before {
+transform: translateX(26px);
+}
+.scroll-down {
+animation: bounce 2s infinite;
+}
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+transform: translateY(0);
+}
+40% {
+transform: translateY(-10px);
+}
+60% {
+transform: translateY(-5px);
+}
+}
+</style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+<div class="container mx-auto px-6 py-4 flex items-center justify-between">
+<a href="#" class="logo text-2xl text-white">La Cutis</a>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#services" class="text-white hover:text-secondary transition-colors duration-300 text-sm">Services</a>
+<a href="#about" class="text-white hover:text-secondary transition-colors duration-300 text-sm">About</a>
+<a href="#gallery" class="text-white hover:text-secondary transition-colors duration-300 text-sm">Gallery</a>
+<a href="#testimonials" class="text-white hover:text-secondary transition-colors duration-300 text-sm">Testimonials</a>
+<a href="#contact" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-5 py-2 !rounded-button transition-all duration-300 whitespace-nowrap text-sm">Book Appointment</a>
+</div>
+<button class="md:hidden text-white w-10 h-10 flex items-center justify-center" id="mobile-menu-button">
+<i class="ri-menu-line ri-lg"></i>
+</button>
+</div>
+<!-- Mobile Menu -->
+<div class="md:hidden hidden bg-primary bg-opacity-95 absolute w-full" id="mobile-menu">
+<div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+<a href="#services" class="text-white hover:text-secondary transition-colors duration-300 py-2">Services</a>
+<a href="#about" class="text-white hover:text-secondary transition-colors duration-300 py-2">About</a>
+<a href="#gallery" class="text-white hover:text-secondary transition-colors duration-300 py-2">Gallery</a>
+<a href="#testimonials" class="text-white hover:text-secondary transition-colors duration-300 py-2">Testimonials</a>
+<a href="#contact" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-5 py-2 !rounded-button transition-all duration-300 whitespace-nowrap text-center">Book Appointment</a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero-section h-screen relative flex items-center" style="background-image: url('https://static.readdy.ai/image/1ab4fc1770b4033ee4e91af200df87fd/f79e88ec5dd070f521a458fd6253e494.jpeg')">
+<div class="hero-content w-full h-full flex items-center">
+<div class="container mx-auto px-6 py-12 flex flex-col md:flex-row items-center">
+<div class="w-full md:w-1/2 text-white space-y-6">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-light leading-tight">Expert Skincare & Eyebrow Artistry</h1>
+<p class="text-lg md:text-xl opacity-90 font-light">Where Beauty Meets Professional Care</p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<a href="#contact" class="bg-white text-primary hover:bg-opacity-90 px-8 py-3 !rounded-button transition-all duration-300 text-center whitespace-nowrap">Book a Consultation</a>
+<a href="#services" class="border border-white text-white hover:bg-white hover:bg-opacity-10 px-8 py-3 !rounded-button transition-all duration-300 text-center whitespace-nowrap">Explore Services</a>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white scroll-down">
+<div class="w-8 h-8 flex items-center justify-center">
+<i class="ri-arrow-down-line ri-lg"></i>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section id="services" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-light text-primary mb-4">Our Premium Services</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Discover our range of professional treatments designed to enhance your natural beauty and restore your skin's radiance.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service 1 -->
+<div class="service-card bg-secondary bg-opacity-30 p-8 rounded transition-all duration-300 hover:shadow-lg">
+<div class="service-icon w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 transition-all duration-300">
+<i class="ri-sun-line ri-xl text-primary"></i>
+</div>
+<h3 class="service-title text-xl font-medium mb-4 transition-colors duration-300">Skin Treatments</h3>
+<ul class="space-y-3 text-gray-600">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Advanced Facial Therapies</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Chemical Peels & Exfoliation</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Acne & Scar Treatment</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Hydration Therapy</span>
+</li>
+</ul>
+<a href="#contact" class="inline-block mt-6 text-primary border-b border-primary pb-1 hover:opacity-80 transition-opacity duration-300">Learn more</a>
+</div>
+<!-- Service 2 -->
+<div class="service-card bg-secondary bg-opacity-30 p-8 rounded transition-all duration-300 hover:shadow-lg">
+<div class="service-icon w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 transition-all duration-300">
+<i class="ri-eye-line ri-xl text-primary"></i>
+</div>
+<h3 class="service-title text-xl font-medium mb-4 transition-colors duration-300">Eyebrow Artistry</h3>
+<ul class="space-y-3 text-gray-600">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Precision Microblading</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Brow Lamination</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Eyebrow Tinting & Shaping</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Brow Restoration Therapy</span>
+</li>
+</ul>
+<a href="#contact" class="inline-block mt-6 text-primary border-b border-primary pb-1 hover:opacity-80 transition-opacity duration-300">Learn more</a>
+</div>
+<!-- Service 3 -->
+<div class="service-card bg-secondary bg-opacity-30 p-8 rounded transition-all duration-300 hover:shadow-lg">
+<div class="service-icon w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 transition-all duration-300">
+<i class="ri-heart-line ri-xl text-primary"></i>
+</div>
+<h3 class="service-title text-xl font-medium mb-4 transition-colors duration-300">Beauty Consultations</h3>
+<ul class="space-y-3 text-gray-600">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Personalized Skincare Plans</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Aesthetic Consultations</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Product Recommendations</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Skin Analysis & Diagnostics</span>
+</li>
+</ul>
+<a href="#contact" class="inline-block mt-6 text-primary border-b border-primary pb-1 hover:opacity-80 transition-opacity duration-300">Learn more</a>
+</div>
+<!-- Service 4 -->
+<div class="service-card bg-secondary bg-opacity-30 p-8 rounded transition-all duration-300 hover:shadow-lg">
+<div class="service-icon w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 transition-all duration-300">
+<i class="ri-hand-heart-line ri-xl text-primary"></i>
+</div>
+<h3 class="service-title text-xl font-medium mb-4 transition-colors duration-300">Nail Care</h3>
+<ul class="space-y-3 text-gray-600">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Luxury Manicure & Pedicure</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Gel Polish & Extensions</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Nail Art & Design</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Hand & Foot Spa</span>
+</li>
+</ul>
+<a href="#contact" class="inline-block mt-6 text-primary border-b border-primary pb-1 hover:opacity-80 transition-opacity duration-300">Learn more</a>
+</div>
+<!-- Service 5 -->
+<div class="service-card bg-secondary bg-opacity-30 p-8 rounded transition-all duration-300 hover:shadow-lg">
+<div class="service-icon w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 transition-all duration-300">
+<i class="ri-drop-line ri-xl text-primary"></i>
+</div>
+<h3 class="service-title text-xl font-medium mb-4 transition-colors duration-300">Glutathione IV Drip</h3>
+<ul class="space-y-3 text-gray-600">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Skin Whitening Treatment</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Anti-aging Benefits</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Immune System Boost</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Energy Enhancement</span>
+</li>
+</ul>
+<a href="#contact" class="inline-block mt-6 text-primary border-b border-primary pb-1 hover:opacity-80 transition-opacity duration-300">Learn more</a>
+</div>
+<!-- Service 6 -->
+<div class="service-card bg-secondary bg-opacity-30 p-8 rounded transition-all duration-300 hover:shadow-lg">
+<div class="service-icon w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6 transition-all duration-300">
+<i class="ri-ink-bottle-line ri-xl text-primary"></i>
+</div>
+<h3 class="service-title text-xl font-medium mb-4 transition-colors duration-300">Skin Tattoo</h3>
+<ul class="space-y-3 text-gray-600">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Custom Design Consultation</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Cosmetic Tattooing</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Scar Camouflage</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-check-line text-primary"></i>
+</span>
+<span>Touch-up Services</span>
+</li>
+</ul>
+<a href="#contact" class="inline-block mt-6 text-primary border-b border-primary pb-1 hover:opacity-80 transition-opacity duration-300">Learn more</a>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-secondary">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/2">
+<img src="https://static.readdy.ai/image/1ab4fc1770b4033ee4e91af200df87fd/9049d5ff0b54cc5f56d24be640d9ba04.jpeg" alt="Professional skincare treatment" class="rounded shadow-lg w-full h-auto object-cover object-top">
+</div>
+<div class="w-full md:w-1/2 space-y-6">
+<h2 class="text-3xl md:text-4xl font-light text-primary">About La Cutis</h2>
+<p class="text-gray-700">La Cutis is a one-stop beauty destination in Quezon City, specializing in expert skincare, eyebrow artistry, nail services,  Glutathione IV Drip Therapy, and skin tattoos.</p>
+<p class="text-gray-700">Our philosophy centers on enhancing your natural beauty through personalized treatments that address your unique needs and concerns. We combine cutting-edge techniques with premium products to deliver exceptional results.</p>
+<div class="pt-4 space-y-4">
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center mr-4 mt-1 bg-white rounded-full">
+<i class="ri-medal-line text-primary ri-lg"></i>
+</div>
+<div>
+<h3 class="text-lg font-medium text-primary mb-1">Certified Professionals</h3>
+<p class="text-gray-700">Our team consists of licensed dermatologists and certified aestheticians with years of specialized training.</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center mr-4 mt-1 bg-white rounded-full">
+<i class="ri-flask-line text-primary ri-lg"></i>
+</div>
+<div>
+<h3 class="text-lg font-medium text-primary mb-1">Premium Products</h3>
+<p class="text-gray-700">We use only medical-grade, dermatologically tested products that deliver visible results.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery Section -->
+<section id="gallery" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-light text-primary mb-4">Our Gallery</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Explore our collection of before-and-after transformations and get inspired for your own beauty journey.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Gallery Item 1 -->
+<div class="overflow-hidden rounded group">
+<img src="https://static.readdy.ai/image/1ab4fc1770b4033ee4e91af200df87fd/140fa07663fb8efa7cc7488b3fb0ccea.jpeg" alt="Skin treatment result" class="w-full h-80 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="p-4 bg-secondary bg-opacity-30">
+<h3 class="text-lg font-medium text-primary">Advanced Facial Therapy</h3>
+<p class="text-gray-600 text-sm">Hydration and rejuvenation treatment</p>
+</div>
+</div>
+<!-- Gallery Item 2 -->
+<div class="overflow-hidden rounded group">
+<img src="https://static.readdy.ai/image/1ab4fc1770b4033ee4e91af200df87fd/0b38cde4aee752870c1a289db9f6333a.jpeg" alt="Eyebrow styling result" class="w-full h-80 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="p-4 bg-secondary bg-opacity-30">
+<h3 class="text-lg font-medium text-primary">Precision Microblading</h3>
+<p class="text-gray-600 text-sm">Natural-looking eyebrow enhancement</p>
+</div>
+</div>
+<!-- Gallery Item 3 -->
+<div class="overflow-hidden rounded group">
+<img src="https://readdy.ai/api/search-image?query=before%20and%20after%20comparison%20of%20acne%20treatment%2C%20clear%20skin%20transformation%2C%20soft%20lighting%2C%20clean%20composition%2C%20high-end%20skincare%20results%2C%20minimalist%20aesthetic%2C%20beauty%20photography&width=600&height=600&seq=5&orientation=squarish" alt="Acne treatment result" class="w-full h-80 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="p-4 bg-secondary bg-opacity-30">
+<h3 class="text-lg font-medium text-primary">Acne Treatment</h3>
+<p class="text-gray-600 text-sm">Comprehensive skin clearing protocol</p>
+</div>
+</div>
+<!-- Gallery Item 4 -->
+<div class="overflow-hidden rounded group">
+<img src="https://readdy.ai/api/search-image?query=luxury%20nail%20care%20service%2C%20professional%20manicure%20and%20pedicure%2C%20elegant%20nail%20art%20design%2C%20soft%20lighting%2C%20spa%20atmosphere%2C%20beauty%20salon%20interior%2C%20high-end%20nail%20treatment&width=600&height=600&seq=6&orientation=squarish" alt="Nail care service" class="w-full h-80 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="p-4 bg-secondary bg-opacity-30">
+<h3 class="text-lg font-medium text-primary">Luxury Nail Care</h3>
+<p class="text-gray-600 text-sm">Professional manicure and pedicure services</p>
+</div>
+</div>
+<!-- Gallery Item 5 -->
+<div class="overflow-hidden rounded group">
+<img src="https://readdy.ai/api/search-image?query=glutathione%20IV%20drip%20therapy%2C%20medical%20spa%20treatment%2C%20clean%20clinical%20setting%2C%20modern%20medical%20equipment%2C%20professional%20healthcare%20environment%2C%20skin%20whitening%20treatment&width=600&height=600&seq=7&orientation=squarish" alt="Glutathione IV treatment" class="w-full h-80 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="p-4 bg-secondary bg-opacity-30">
+<h3 class="text-lg font-medium text-primary">Glutathione IV Therapy</h3>
+<p class="text-gray-600 text-sm">Advanced skin whitening treatment</p>
+</div>
+</div>
+<!-- Gallery Item 6 -->
+<div class="overflow-hidden rounded group">
+<img src="https://static.readdy.ai/image/1ab4fc1770b4033ee4e91af200df87fd/48e176443926bc4e434f692ee95301f5.jpeg" alt="Skin tattoo service" class="w-full h-80 object-cover object-top transition-transform duration-500 group-hover:scale-105">
+<div class="p-4 bg-secondary bg-opacity-30">
+<h3 class="text-lg font-medium text-primary">Skin Tattoo Art</h3>
+<p class="text-gray-600 text-sm">Professional cosmetic tattooing</p>
+</div>
+</div>
+</div>
+<div class="text-center mt-10">
+<a href="#contact" class="inline-block bg-primary text-white hover:bg-opacity-90 px-8 py-3 !rounded-button transition-all duration-300 whitespace-nowrap">Schedule Your Transformation</a>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section id="testimonials" class="py-20 bg-secondary">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-light text-primary mb-4">Client Testimonials</h2>
+<p class="text-gray-600 max-w-2xl mx-auto">Hear what our satisfied clients have to say about their experience at La Cutis.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-white p-8 rounded shadow-sm">
+<div class="flex items-center mb-4">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-700 mb-6">"After struggling with acne for years, the personalized treatment plan from La Cutis completely transformed my skin. La Cutis team are truly miracle workers!"</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-medium">EM</span>
+</div>
+<div>
+<h4 class="font-medium text-primary">Eleanor Mendoza</h4>
+<p class="text-gray-600 text-sm">Client since 2022</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white p-8 rounded shadow-sm">
+<div class="flex items-center mb-4">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-700 mb-6">"The microblading service at La Cutis exceeded all my expectations. My eyebrows look so natural that even my closest friends couldn't tell they were enhanced. Absolutely worth every peso!"</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-medium">JR</span>
+</div>
+<div>
+<h4 class="font-medium text-primary">Mitos Chavez</h4>
+<p class="text-gray-600 text-sm">Client since 2023</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-white p-8 rounded shadow-sm">
+<div class="flex items-center mb-4">
+<div class="text-primary">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<p class="text-gray-700 mb-6">"The consultation experience at La Cutis is unlike any other clinic I've visited. They take the time to understand your concerns and create a customized plan. My skin has never looked better!"</p>
+<div class="flex items-center">
+<div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mr-4">
+<span class="text-primary font-medium">MA</span>
+</div>
+<div>
+<h4 class="font-medium text-primary">Miguel Aquino</h4>
+<p class="text-gray-600 text-sm">Client since 2021</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-white">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<h2 class="text-3xl md:text-4xl font-light text-primary mb-6">Book Your Appointment</h2>
+<p class="text-gray-600 mb-8">Ready to start your beauty journey? Fill out the form below, and our team will contact you to schedule your consultation.</p>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label for="name" class="block text-gray-700 mb-2">Full Name</label>
+<input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your name">
+</div>
+<div>
+<label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
+<input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your phone number">
+</div>
+</div>
+<div>
+<label for="email" class="block text-gray-700 mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Your email address">
+</div>
+<div>
+<label for="service" class="block text-gray-700 mb-2">Service Interest</label>
+<div class="relative">
+<select id="service" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary appearance-none pr-8">
+<option value="" disabled selected>Select a service</option>
+<option value="facial">Facial Treatments</option>
+<option value="eyebrow">Eyebrow Services</option>
+<option value="consultation">Beauty Consultation</option>
+<option value="other">Other Services</option>
+</select>
+<div class="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
+<i class="ri-arrow-down-s-line text-gray-500"></i>
+</div>
+</div>
+</div>
+<div>
+<label for="message" class="block text-gray-700 mb-2">Additional Information</label>
+<textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary" placeholder="Tell us more about your skincare concerns or questions"></textarea>
+</div>
+<div class="flex items-center">
+<label class="custom-switch mr-3">
+<input type="checkbox" checked>
+<span class="slider"></span>
+</label>
+<span class="text-gray-700 text-sm">I agree to receive updates about services and promotions</span>
+</div>
+<button type="submit" class="bg-primary text-white hover:bg-opacity-90 px-8 py-3 !rounded-button transition-all duration-300 whitespace-nowrap">Submit Request</button>
+</form>
+</div>
+<div class="lg:pl-10">
+<h3 class="text-2xl font-light text-primary mb-6">Visit Our Clinic</h3>
+<div class="mb-8">
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 flex items-center justify-center mr-4 mt-1 bg-secondary rounded-full">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-primary mb-1">Address</h4>
+<p class="text-gray-700">32-A Cotabato Street, Bago Bantay<br>Quezon City, Philippines</p>
+</div>
+</div>
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 flex items-center justify-center mr-4 mt-1 bg-secondary rounded-full">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-primary mb-1">Phone</h4>
+<p class="text-gray-700">+63 961 383 3436</p>
+</div>
+</div>
+<div class="flex items-start mb-4">
+<div class="w-10 h-10 flex items-center justify-center mr-4 mt-1 bg-secondary rounded-full">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-primary mb-1">Email</h4>
+<p class="text-gray-700">LaCutis2025@gmail.com</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-10 h-10 flex items-center justify-center mr-4 mt-1 bg-secondary rounded-full">
+<i class="ri-time-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-primary mb-1">Hours</h4>
+<p class="text-gray-700">Monday - Saturday: 10:00 AM - 7:00 PM<br>Sunday: Closed</p>
+</div>
+</div>
+</div>
+<div class="rounded overflow-hidden h-80 shadow-lg">
+<div class="w-full h-full" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png'); background-position: center; background-size: cover;"></div>
+</div>
+<div class="mt-8">
+<h4 class="font-medium text-primary mb-4">Follow Us</h4>
+<div class="flex space-x-4">
+<a href="https://www.facebook.com/profile.php?id=61577698918299" data-readdy="true" class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+<i class="ri-facebook-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+<i class="ri-instagram-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+<i class="ri-twitter-x-fill"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+<i class="ri-tiktok-fill"></i>
+</a>
+</div>
+</div>
+<div class="mt-8">
+<h4 class="font-medium text-primary mb-4">Scan & Connect</h4>
+<div class="flex items-center space-x-6">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.facebook.com/profile.php?id=61577698918299" alt="Facebook QR Code" class="w-32 h-32 rounded shadow-sm">
+<div class="text-gray-700">
+<p class="mb-2">Scan the QR code to</p>
+<p class="font-medium">Follow us on Facebook</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary text-white py-12">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-2">
+<h3 class="logo text-2xl mb-4">La Cutis</h3>
+<p class="text-gray-300 mb-6 max-w-md">Dedicated to enhancing your natural beauty through expert skincare and eyebrow artistry. Our professional team is committed to providing personalized treatments for exceptional results.</p>
+<div class="flex space-x-4">
+<a href="https://www.facebook.com/profile.php?id=61577698918299" data-readdy="true" class="text-gray-300 hover:text-white transition-colors duration-300">
+<i class="ri-facebook-fill ri-lg"></i>
+</a>
+<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+<i class="ri-instagram-fill ri-lg"></i>
+</a>
+<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+<i class="ri-twitter-x-fill ri-lg"></i>
+</a>
+<a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">
+<i class="ri-tiktok-fill ri-lg"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-medium mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a href="#services" class="text-gray-300 hover:text-white transition-colors duration-300">Services</a></li>
+<li><a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300">About Us</a></li>
+<li><a href="#gallery" class="text-gray-300 hover:text-white transition-colors duration-300">Gallery</a></li>
+<li><a href="#testimonials" class="text-gray-300 hover:text-white transition-colors duration-300">Testimonials</a></li>
+<li><a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-medium mb-4">Contact Info</h4>
+<ul class="space-y-2">
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-map-pin-line text-gray-300"></i>
+</span>
+<span class="text-gray-300">32-A Cotabato Street, Bago Bantay, Quezon City</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-phone-line text-gray-300"></i>
+</span>
+<span class="text-gray-300">+63 961 383 3436</span>
+</li>
+<li class="flex items-start">
+<span class="w-5 h-5 flex items-center justify-center mr-2 mt-0.5">
+<i class="ri-mail-line text-gray-300"></i>
+</span>
+<span class="text-gray-300">LaCutis2025@gmail.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 text-sm">© 2025 La Cutis. All rights reserved.</p>
+<div class="flex items-center mt-4 md:mt-0">
+<span class="text-gray-400 text-sm mr-4">Payment Methods:</span>
+<div class="flex space-x-3">
+<i class="ri-visa-fill ri-lg text-gray-300"></i>
+<i class="ri-mastercard-fill ri-lg text-gray-300"></i>
+<i class="ri-paypal-fill ri-lg text-gray-300"></i>
+<i class="ri-bank-card-fill ri-lg text-gray-300"></i>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- Floating Book Now Button -->
+<div class="fixed bottom-6 right-6 z-40">
+<a href="#contact" class="bg-primary text-white shadow-lg rounded-full w-14 h-14 flex items-center justify-center hover:bg-opacity-90 transition-all duration-300">
+<i class="ri-calendar-check-line ri-lg"></i>
+</a>
+</div>
+<script id="navigation-script">
+document.addEventListener('DOMContentLoaded', function() {
+const navbar = document.getElementById('navbar');
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+// Handle navbar background on scroll
+window.addEventListener('scroll', function() {
+if (window.scrollY > 50) {
+navbar.classList.add('bg-primary');
+navbar.classList.remove('bg-transparent');
+} else {
+navbar.classList.remove('bg-primary');
+navbar.classList.add('bg-transparent');
+}
+});
+// Initial check for navbar background
+if (window.scrollY > 50) {
+navbar.classList.add('bg-primary');
+navbar.classList.remove('bg-transparent');
+}
+// Mobile menu toggle
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+// Close mobile menu when clicking on a link
+const mobileLinks = mobileMenu.querySelectorAll('a');
+mobileLinks.forEach(link => {
+link.addEventListener('click', function() {
+mobileMenu.classList.add('hidden');
+});
+});
+});
+</script>
+<script id="smooth-scroll-script">
+document.addEventListener('DOMContentLoaded', function() {
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+const navbarHeight = document.querySelector('nav').offsetHeight;
+const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+window.scrollTo({
+top: targetPosition,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+<script id="form-validation-script">
+document.addEventListener('DOMContentLoaded', function() {
+const form = document.querySelector('form');
+if (form) {
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+// Basic validation
+const name = document.getElementById('name');
+const email = document.getElementById('email');
+const phone = document.getElementById('phone');
+const service = document.getElementById('service');
+let isValid = true;
+if (!name.value.trim()) {
+highlightError(name);
+isValid = false;
+} else {
+removeError(name);
+}
+if (!email.value.trim() || !isValidEmail(email.value)) {
+highlightError(email);
+isValid = false;
+} else {
+removeError(email);
+}
+if (!phone.value.trim()) {
+highlightError(phone);
+isValid = false;
+} else {
+removeError(phone);
+}
+if (service.value === "") {
+highlightError(service);
+isValid = false;
+} else {
+removeError(service);
+}
+if (isValid) {
+// Simulate form submission
+const submitButton = form.querySelector('button[type="submit"]');
+const originalText = submitButton.textContent;
+submitButton.disabled = true;
+submitButton.textContent = 'Submitting...';
+setTimeout(() => {
+form.reset();
+submitButton.disabled = false;
+submitButton.textContent = originalText;
+// Show success message
+alert('Thank you for your submission! We will contact you shortly to confirm your appointment.');
+}, 1500);
+}
+});
+}
+function highlightError(element) {
+element.classList.add('border-red-500');
+element.classList.remove('border-gray-300');
+}
+function removeError(element) {
+element.classList.remove('border-red-500');
+element.classList.add('border-gray-300');
+}
+function isValidEmail(email) {
+const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+return re.test(String(email).toLowerCase());
+}
+});
+</script>
+</body>
+</html>
